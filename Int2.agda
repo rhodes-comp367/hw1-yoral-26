@@ -35,10 +35,10 @@ iplus (+ zero) n = n
 iplus (- zero) n = n
 iplus n (+ zero) = n
 iplus n (- zero) = n
-iplus (-n) (-m) = {!   !}
-iplus n (- m) = {!   !}
-iplus n m = {!   !}
-iplus (-n) m = {!   !}
+iplus (- (suc n)) (- (suc m)) = - (suc (plus n m))
+iplus (+ (suc n)) (- (suc m)) = - (suc (plus m n))
+iplus (+ (suc n)) (+ (suc m)) = + (suc (plus n m))
+iplus (- (suc n)) (+ (suc m)) = + (suc (plus m n))
 
 -- given i & j, return i - j.
 iminus : Int → Int → Int
@@ -46,10 +46,10 @@ iminus (+ zero) n = n
 iminus (- zero) n = n
 iminus n (+ zero) = n
 iminus n (- zero) = n
-iminus (-n) (-m) = {!   !}
-iminus n (- m) = {!   !}
-iminus n m = {!   !}
-iminus (-n) m = {!   !}
+iminus (- (suc n)) (- (suc m)) = - (suc (plus m n))
+iminus (+ (suc n)) (- (suc m)) = + (suc (plus n m))
+iminus (+ (suc n)) (+ (suc m)) = - (suc (plus m n))
+iminus (- (suc n)) (+ (suc m)) = - (suc (plus n m))
 
 -- given i & j, return i * j.
 itimes : Int → Int → Int
@@ -57,8 +57,8 @@ itimes (+ zero) n = + zero
 itimes (- zero) n = - zero
 itimes n (+ zero) = + zero
 itimes n (- zero) = - zero
-itimes (-n) (-m) = {!   !}
-itimes n (- m) = {!   !}
-itimes n m = {!   !}
-itimes (-n) m = {!   !}
+itimes (- (suc n)) (- (suc m)) = + (suc (times n m))
+itimes (+ (suc n)) (- (suc m)) = - (suc (times n m))
+itimes (+ (suc n)) (+ (suc m)) = + (suc (times n m))
+itimes (- (suc n)) (+ (suc m)) = - (suc (times n m))
 
